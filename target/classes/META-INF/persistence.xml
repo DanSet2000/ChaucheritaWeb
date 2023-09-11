@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="jpaMiChaucherita"
+		transaction-type="RESOURCE_LOCAL">
+		<!-- el proveedor de la persistencia -->
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<!-- Son los modelos que el ORM va a manejar -->
+		<class>model.entidades.Account</class>
+		<class>model.entidades.User</class>
+		<class>model.entidades.Move</class>
+		<class>model.entidades.Category</class>
+
+		<!-- propiedades -->
+		<properties>
+
+			<!-- la URL que nos conectamos, revisar su LOCAL HOST, y el nombre de 
+				la cuenta -->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://127.0.0.1/chaucherita" />
+			<!-- usuario de la base de datos -->
+			<property name="javax.persistence.jdbc.user" value="root" />
+
+			<!-- la contraseña -->
+			<property name="javax.persistence.jdbc.password" value="" />
+
+			<!-- el driver -->
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+
+			<!-- esta opcion nos permite generar con 3 valores: el create-tables crea 
+				las tables automaticamente en la base de datos -->
+			<!-- property name="eclipselink.ddl-generation"
+				value="create-tables" /-->
+
+			<!-- Esta Opcion borra la base de datos y la crea de nuevo -->
+			<!--property name="eclipselink.ddl-generation" value="drop-and-create-tables"/-->
+
+			<!-- esta opcion cada que ejecutemos no borra ni crea, persiste sobre 
+				las tablas que ya estan -->
+			<property name="eclipselink.ddl-generation" value="none"/>
+
+		</properties>
+
+
+	</persistence-unit>
+</persistence>
